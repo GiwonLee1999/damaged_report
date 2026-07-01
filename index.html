@@ -2,237 +2,255 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insurance Damage Report</title>
 
 <style>
+  /* --- Screen Layout --- */
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
     margin: 0;
-    background: #fff;
-    color: #111;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.5;
   }
 
   .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 4px;
   }
 
   h1 {
     text-align: center;
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 26px;
+    color: #1a365d;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 15px;
   }
 
   .item {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+
+  .item:last-child {
+    border-bottom: none;
+  }
+
+  .label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2b6cb0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .image-wrapper {
+    background: #fafafa;
+    border: 1px solid #cbd5e0;
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+    box-sizing: border-box;
   }
 
   img {
     width: 100%;
     height: auto;
-    border: 1px solid #ccc;
-    page-break-inside: avoid;
-    break-inside: avoid;
     display: block;
-  }
-
-  .label {
-    font-weight: bold;
-    margin-bottom: 5px;
+    border-radius: 2px;
   }
 
   .caption {
-    margin-top: 8px;
-    font-size: 13px;
-    color: #333;
-    min-height: 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #4a5568;
+    font-style: italic;
+    min-height: 20px;
+    padding-left: 10px;
+    border-left: 3px solid #cbd5e0;
   }
 
+  /* Empty captions will automatically hide during printing */
+  .caption:empty {
+    display: none;
+  }
+
+  /* --- Print Layout Fixes (One Image Per Page) --- */
   @media print {
-    .item {
-      page-break-after: always;
-      break-after: page;
-      margin: 0;
-      padding: 20px;
+    body {
+      background: #fff;
+      color: #000;
+      font-size: 12pt;
     }
 
-    img {
-      max-height: 90vh;
-      object-fit: contain;
+    .container {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
     }
 
     h1 {
-      page-break-after: avoid;
+      font-size: 22px;
+      margin-top: 0;
+      break-after: avoid;
+    }
+    
+    .subtitle {
+      margin-bottom: 30px;
+      break-after: avoid;
+    }
+
+    .item {
+      /* Forces hard page break for every item block */
+      break-before: page;
+      break-inside: avoid;
+      
+      margin: 0;
+      padding-top: 15mm; 
+      height: 92vh; 
+      box-sizing: border-box;
+      border-bottom: none;
+    }
+
+    /* Keeps the first image on page 1 right under the title */
+    .item:first-of-type {
+      break-before: auto;
+    }
+
+    .label {
+      font-size: 14pt;
+      color: #000;
+    }
+
+    .image-wrapper {
+      border: 1px solid #000;
+      padding: 5px;
+    }
+
+    img {
+      /* Scales images dynamically so they never overflow onto page 2 */
+      max-height: 72vh; 
+      object-fit: contain;
+      width: auto;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .caption {
+      font-size: 11pt;
+      color: #222;
+      border-left: 3px solid #000;
+      break-inside: avoid;
     }
   }
 </style>
 </head>
-
 <body>
 
 <div class="container">
-<h1>Insurance Damage Documentation</h1>
+  <h1>Insurance Damage Documentation</h1>
+  <div class="subtitle">Property Location: Basement Flood Damage Assessment Report</div>
 
-<!-- 1 -->
-<div class="item"><div class="label">Image 1</div><img src="image_1.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 2 -->
-<div class="item"><div class="label">Image 2</div><img src="image_2.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 3 -->
-<div class="item"><div class="label">Image 3</div><img src="image_3.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 4 -->
-<div class="item"><div class="label">Image 4</div><img src="image_4.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 5 -->
-<div class="item"><div class="label">Image 5</div><img src="image_5.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 6 -->
-<div class="item"><div class="label">Image 6</div><img src="image_6.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 7 -->
-<div class="item"><div class="label">Image 7</div><img src="image_7.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 8 -->
-<div class="item"><div class="label">Image 8</div><img src="image_8.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 9 -->
-<div class="item"><div class="label">Image 9</div><img src="image_9.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 10 -->
-<div class="item"><div class="label">Image 10</div><img src="image_10.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 1</div><div class="image-wrapper"><img src="image_1.jpg"></div><div class="caption">Type your description for image 1 here...</div></div>
+  <div class="item"><div class="label">Image 2</div><div class="image-wrapper"><img src="image_2.jpg"></div><div class="caption">Type your description for image 2 here...</div></div>
+  <div class="item"><div class="label">Image 3</div><div class="image-wrapper"><img src="image_3.jpg"></div><div class="caption">Type your description for image 3 here...</div></div>
+  <div class="item"><div class="label">Image 4</div><div class="image-wrapper"><img src="image_4.jpg"></div><div class="caption">Type your description for image 4 here...</div></div>
+  <div class="item"><div class="label">Image 5</div><div class="image-wrapper"><img src="image_5.jpg"></div><div class="caption">Type your description for image 5 here...</div></div>
+  <div class="item"><div class="label">Image 6</div><div class="image-wrapper"><img src="image_6.jpg"></div><div class="caption">Type your description for image 6 here...</div></div>
+  <div class="item"><div class="label">Image 7</div><div class="image-wrapper"><img src="image_7.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 8</div><div class="image-wrapper"><img src="image_8.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 9</div><div class="image-wrapper"><img src="image_9.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 10</div><div class="image-wrapper"><img src="image_10.jpg"></div><div class="caption"></div></div>
 
-<!-- 11 -->
-<div class="item"><div class="label">Image 11</div><img src="image_11.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 12 -->
-<div class="item"><div class="label">Image 12</div><img src="image_12.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 13 -->
-<div class="item"><div class="label">Image 13</div><img src="image_13.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 14 -->
-<div class="item"><div class="label">Image 14</div><img src="image_14.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 15 -->
-<div class="item"><div class="label">Image 15</div><img src="image_15.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 16 -->
-<div class="item"><div class="label">Image 16</div><img src="image_16.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 17 -->
-<div class="item"><div class="label">Image 17</div><img src="image_17.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 18 -->
-<div class="item"><div class="label">Image 18</div><img src="image_18.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 19 -->
-<div class="item"><div class="label">Image 19</div><img src="image_19.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 20 -->
-<div class="item"><div class="label">Image 20</div><img src="image_20.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 11</div><div class="image-wrapper"><img src="image_11.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 12</div><div class="image-wrapper"><img src="image_12.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 13</div><div class="image-wrapper"><img src="image_13.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 14</div><div class="image-wrapper"><img src="image_14.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 15</div><div class="image-wrapper"><img src="image_15.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 16</div><div class="image-wrapper"><img src="image_16.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 17</div><div class="image-wrapper"><img src="image_17.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 18</div><div class="image-wrapper"><img src="image_18.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 19</div><div class="image-wrapper"><img src="image_19.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 20</div><div class="image-wrapper"><img src="image_20.jpg"></div><div class="caption"></div></div>
 
-<!-- 21 -->
-<div class="item"><div class="label">Image 21</div><img src="image_21.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 22 -->
-<div class="item"><div class="label">Image 22</div><img src="image_22.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 23 -->
-<div class="item"><div class="label">Image 23</div><img src="image_23.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 24 -->
-<div class="item"><div class="label">Image 24</div><img src="image_24.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 25 -->
-<div class="item"><div class="label">Image 25</div><img src="image_25.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 26 -->
-<div class="item"><div class="label">Image 26</div><img src="image_26.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 27 -->
-<div class="item"><div class="label">Image 27</div><img src="image_27.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 28 -->
-<div class="item"><div class="label">Image 28</div><img src="image_28.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 29 -->
-<div class="item"><div class="label">Image 29</div><img src="image_29.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 30 -->
-<div class="item"><div class="label">Image 30</div><img src="image_30.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 21</div><div class="image-wrapper"><img src="image_21.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 22</div><div class="image-wrapper"><img src="image_22.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 23</div><div class="image-wrapper"><img src="image_23.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 24</div><div class="image-wrapper"><img src="image_24.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 25</div><div class="image-wrapper"><img src="image_25.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 26</div><div class="image-wrapper"><img src="image_26.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 27</div><div class="image-wrapper"><img src="image_27.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 28</div><div class="image-wrapper"><img src="image_28.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 29</div><div class="image-wrapper"><img src="image_29.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 30</div><div class="image-wrapper"><img src="image_30.jpg"></div><div class="caption"></div></div>
 
-<!-- 31 -->
-<div class="item"><div class="label">Image 31</div><img src="image_31.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 32 -->
-<div class="item"><div class="label">Image 32</div><img src="image_32.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 33 -->
-<div class="item"><div class="label">Image 33</div><img src="image_33.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 34 -->
-<div class="item"><div class="label">Image 34</div><img src="image_34.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 35 -->
-<div class="item"><div class="label">Image 35</div><img src="image_35.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 36 -->
-<div class="item"><div class="label">Image 36</div><img src="image_36.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 37 -->
-<div class="item"><div class="label">Image 37</div><img src="image_37.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 38 -->
-<div class="item"><div class="label">Image 38</div><img src="image_38.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 39 -->
-<div class="item"><div class="label">Image 39</div><img src="image_39.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 40 -->
-<div class="item"><div class="label">Image 40</div><img src="image_40.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 31</div><div class="image-wrapper"><img src="image_31.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 32</div><div class="image-wrapper"><img src="image_32.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 33</div><div class="image-wrapper"><img src="image_33.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 34</div><div class="image-wrapper"><img src="image_34.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 35</div><div class="image-wrapper"><img src="image_35.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 36</div><div class="image-wrapper"><img src="image_36.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 37</div><div class="image-wrapper"><img src="image_37.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 38</div><div class="image-wrapper"><img src="image_38.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 39</div><div class="image-wrapper"><img src="image_39.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 40</div><div class="image-wrapper"><img src="image_40.jpg"></div><div class="caption"></div></div>
 
-<!-- 41 -->
-<div class="item"><div class="label">Image 41</div><img src="image_41.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 42 -->
-<div class="item"><div class="label">Image 42</div><img src="image_42.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 43 -->
-<div class="item"><div class="label">Image 43</div><img src="image_43.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 44 -->
-<div class="item"><div class="label">Image 44</div><img src="image_44.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 45 -->
-<div class="item"><div class="label">Image 45</div><img src="image_45.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 46 -->
-<div class="item"><div class="label">Image 46</div><img src="image_46.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 47 -->
-<div class="item"><div class="label">Image 47</div><img src="image_47.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 48 -->
-<div class="item"><div class="label">Image 48</div><img src="image_48.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 49 -->
-<div class="item"><div class="label">Image 49</div><img src="image_49.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 50 -->
-<div class="item"><div class="label">Image 50</div><img src="image_50.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 41</div><div class="image-wrapper"><img src="image_41.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 42</div><div class="image-wrapper"><img src="image_42.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 43</div><div class="image-wrapper"><img src="image_43.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 44</div><div class="image-wrapper"><img src="image_44.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 45</div><div class="image-wrapper"><img src="image_45.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 46</div><div class="image-wrapper"><img src="image_46.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 47</div><div class="image-wrapper"><img src="image_47.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 48</div><div class="image-wrapper"><img src="image_48.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 49</div><div class="image-wrapper"><img src="image_49.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 50</div><div class="image-wrapper"><img src="image_50.jpg"></div><div class="caption"></div></div>
 
-<!-- 51 -->
-<div class="item"><div class="label">Image 51</div><img src="image_51.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 52 -->
-<div class="item"><div class="label">Image 52</div><img src="image_52.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 53 -->
-<div class="item"><div class="label">Image 53</div><img src="image_53.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 54 -->
-<div class="item"><div class="label">Image 54</div><img src="image_54.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 55 -->
-<div class="item"><div class="label">Image 55</div><img src="image_55.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 56 -->
-<div class="item"><div class="label">Image 56</div><img src="image_56.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 57 -->
-<div class="item"><div class="label">Image 57</div><img src="image_57.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 58 -->
-<div class="item"><div class="label">Image 58</div><img src="image_58.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 59 -->
-<div class="item"><div class="label">Image 59</div><img src="image_59.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 60 -->
-<div class="item"><div class="label">Image 60</div><img src="image_60.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 51</div><div class="image-wrapper"><img src="image_51.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 52</div><div class="image-wrapper"><img src="image_52.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 53</div><div class="image-wrapper"><img src="image_53.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 54</div><div class="image-wrapper"><img src="image_54.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 55</div><div class="image-wrapper"><img src="image_55.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 56</div><div class="image-wrapper"><img src="image_56.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 57</div><div class="image-wrapper"><img src="image_57.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 58</div><div class="image-wrapper"><img src="image_58.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 59</div><div class="image-wrapper"><img src="image_59.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 60</div><div class="image-wrapper"><img src="image_60.jpg"></div><div class="caption"></div></div>
 
-<!-- 61 -->
-<div class="item"><div class="label">Image 61</div><img src="image_61.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 62 -->
-<div class="item"><div class="label">Image 62</div><img src="image_62.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 63 -->
-<div class="item"><div class="label">Image 63</div><img src="image_63.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 64 -->
-<div class="item"><div class="label">Image 64</div><img src="image_64.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 65 -->
-<div class="item"><div class="label">Image 65</div><img src="image_65.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 66 -->
-<div class="item"><div class="label">Image 66</div><img src="image_66.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 67 -->
-<div class="item"><div class="label">Image 67</div><img src="image_67.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 68 -->
-<div class="item"><div class="label">Image 68</div><img src="image_68.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 69 -->
-<div class="item"><div class="label">Image 69</div><img src="image_69.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 70 -->
-<div class="item"><div class="label">Image 70</div><img src="image_70.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 61</div><div class="image-wrapper"><img src="image_61.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 62</div><div class="image-wrapper"><img src="image_62.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 63</div><div class="image-wrapper"><img src="image_63.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 64</div><div class="image-wrapper"><img src="image_64.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 65</div><div class="image-wrapper"><img src="image_65.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 66</div><div class="image-wrapper"><img src="image_66.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 67</div><div class="image-wrapper"><img src="image_67.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 68</div><div class="image-wrapper"><img src="image_68.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 69</div><div class="image-wrapper"><img src="image_69.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 70</div><div class="image-wrapper"><img src="image_70.jpg"></div><div class="caption"></div></div>
 
-<!-- 71 -->
-<div class="item"><div class="label">Image 71</div><img src="image_71.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 72 -->
-<div class="item"><div class="label">Image 72</div><img src="image_72.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 73 -->
-<div class="item"><div class="label">Image 73</div><img src="image_73.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 74 -->
-<div class="item"><div class="label">Image 74</div><img src="image_74.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 75 -->
-<div class="item"><div class="label">Image 75</div><img src="image_75.jpg"><div class="caption">/* optional description */</div></div>
-<!-- 76 -->
-<div class="item"><div class="label">Image 76</div><img src="image_76.jpg"><div class="caption">/* optional description */</div></div>
+  <div class="item"><div class="label">Image 71</div><div class="image-wrapper"><img src="image_71.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 72</div><div class="image-wrapper"><img src="image_72.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 73</div><div class="image-wrapper"><img src="image_73.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 74</div><div class="image-wrapper"><img src="image_74.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 75</div><div class="image-wrapper"><img src="image_75.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 76</div><div class="image-wrapper"><img src="image_76.jpg"></div><div class="caption"></div></div>
 
 </div>
 
