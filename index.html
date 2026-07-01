@@ -90,7 +90,6 @@
     border-left: 3px solid #cbd5e0;
   }
 
-  /* Empty captions will automatically hide during printing */
   .caption:empty {
     display: none;
   }
@@ -113,7 +112,6 @@
     .report-header {
       border-bottom: 2px solid #000;
       margin-bottom: 20px;
-      page-break-after: avoid;
       break-after: avoid;
     }
 
@@ -121,14 +119,9 @@
       font-size: 22px;
     }
 
-    /* Target every image container */
     .item {
-      /* Force a hard page break BEFORE every item... */
-      page-break-before: always;
       break-before: page;
-      page-break-inside: avoid;
       break-inside: avoid;
-      
       margin: 0;
       padding-top: 5mm; 
       height: 90vh; 
@@ -136,10 +129,10 @@
       border-bottom: none;
     }
 
-    /* ...EXCEPT for the very first item. This keeps Image 1 on Page 1! */
+    /* Prevent page break before Image 1 so it stays on Page 1 */
     .item:first-of-type {
-      page-break-before: avoid;
       break-before: avoid;
+      height: auto; /* Let content height define the first page */
     }
 
     .label {
@@ -152,9 +145,8 @@
       padding: 5px;
     }
 
+    /* General rules for images 2 to 76 */
     img {
-      /* Keep standard landscape/portrait images constrained to a clean 
-         single page variable height so captions never spill over */
       max-height: 68vh; 
       object-fit: contain;
       width: auto;
@@ -162,11 +154,15 @@
       margin: 0 auto;
     }
 
+    /* Specific fix: Shrink ONLY the first image to leave room for the top bar header */
+    .item:first-of-type img {
+      max-height: 50vh;
+    }
+
     .caption {
       font-size: 11pt;
       color: #222;
       border-left: 3px solid #000;
-      page-break-inside: avoid;
       break-inside: avoid;
     }
   }
