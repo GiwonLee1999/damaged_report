@@ -24,11 +24,17 @@
     border-radius: 4px;
   }
 
+  .report-header {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 15px;
+  }
+
   h1 {
     text-align: center;
     font-size: 26px;
     color: #1a365d;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
@@ -37,9 +43,7 @@
     text-align: center;
     font-size: 14px;
     color: #718096;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 15px;
+    margin: 0;
   }
 
   .item {
@@ -91,7 +95,7 @@
     display: none;
   }
 
-  /* --- Print Layout Fixes (One Image Per Page) --- */
+  /* --- Print Layout Fixes --- */
   @media print {
     body {
       background: #fff;
@@ -106,32 +110,36 @@
       box-shadow: none;
     }
 
-    h1 {
-      font-size: 22px;
-      margin-top: 0;
-      break-after: avoid;
-    }
-    
-    .subtitle {
-      margin-bottom: 30px;
+    .report-header {
+      border-bottom: 2px solid #000;
+      margin-bottom: 20px;
+      page-break-after: avoid;
       break-after: avoid;
     }
 
+    h1 {
+      font-size: 22px;
+    }
+
+    /* Target every image container */
     .item {
-      /* Forces hard page break for every item block */
+      /* Force a hard page break BEFORE every item... */
+      page-break-before: always;
       break-before: page;
+      page-break-inside: avoid;
       break-inside: avoid;
       
       margin: 0;
-      padding-top: 15mm; 
-      height: 92vh; 
+      padding-top: 5mm; 
+      height: 90vh; 
       box-sizing: border-box;
       border-bottom: none;
     }
 
-    /* Keeps the first image on page 1 right under the title */
+    /* ...EXCEPT for the very first item. This keeps Image 1 on Page 1! */
     .item:first-of-type {
-      break-before: auto;
+      page-break-before: avoid;
+      break-before: avoid;
     }
 
     .label {
@@ -145,8 +153,9 @@
     }
 
     img {
-      /* Scales images dynamically so they never overflow onto page 2 */
-      max-height: 72vh; 
+      /* Keep standard landscape/portrait images constrained to a clean 
+         single page variable height so captions never spill over */
+      max-height: 68vh; 
       object-fit: contain;
       width: auto;
       max-width: 100%;
@@ -157,6 +166,7 @@
       font-size: 11pt;
       color: #222;
       border-left: 3px solid #000;
+      page-break-inside: avoid;
       break-inside: avoid;
     }
   }
@@ -165,15 +175,18 @@
 <body>
 
 <div class="container">
-  <h1>Insurance Damage Documentation</h1>
-  <div class="subtitle">Property Location: Basement Flood Damage Assessment Report</div>
+  
+  <div class="report-header">
+    <h1>Insurance Damage Documentation</h1>
+    <div class="subtitle">Property Location: Basement Flood Damage Assessment Report</div>
+  </div>
 
   <div class="item"><div class="label">Image 1</div><div class="image-wrapper"><img src="image_1.jpg"></div><div class="caption">Type your description for image 1 here...</div></div>
   <div class="item"><div class="label">Image 2</div><div class="image-wrapper"><img src="image_2.jpg"></div><div class="caption">Type your description for image 2 here...</div></div>
-  <div class="item"><div class="label">Image 3</div><div class="image-wrapper"><img src="image_3.jpg"></div><div class="caption">Type your description for image 3 here...</div></div>
-  <div class="item"><div class="label">Image 4</div><div class="image-wrapper"><img src="image_4.jpg"></div><div class="caption">Type your description for image 4 here...</div></div>
-  <div class="item"><div class="label">Image 5</div><div class="image-wrapper"><img src="image_5.jpg"></div><div class="caption">Type your description for image 5 here...</div></div>
-  <div class="item"><div class="label">Image 6</div><div class="image-wrapper"><img src="image_6.jpg"></div><div class="caption">Type your description for image 6 here...</div></div>
+  <div class="item"><div class="label">Image 3</div><div class="image-wrapper"><img src="image_3.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 4</div><div class="image-wrapper"><img src="image_4.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 5</div><div class="image-wrapper"><img src="image_5.jpg"></div><div class="caption"></div></div>
+  <div class="item"><div class="label">Image 6</div><div class="image-wrapper"><img src="image_6.jpg"></div><div class="caption"></div></div>
   <div class="item"><div class="label">Image 7</div><div class="image-wrapper"><img src="image_7.jpg"></div><div class="caption"></div></div>
   <div class="item"><div class="label">Image 8</div><div class="image-wrapper"><img src="image_8.jpg"></div><div class="caption"></div></div>
   <div class="item"><div class="label">Image 9</div><div class="image-wrapper"><img src="image_9.jpg"></div><div class="caption"></div></div>
