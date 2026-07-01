@@ -26,12 +26,15 @@
 
   .item {
     margin-bottom: 40px;
-    page-break-inside: avoid;
   }
 
   img {
     width: 100%;
+    height: auto;
     border: 1px solid #ccc;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: block;
   }
 
   .label {
@@ -44,6 +47,24 @@
     font-size: 13px;
     color: #333;
     min-height: 18px;
+  }
+
+  @media print {
+    .item {
+      page-break-after: always;
+      break-after: page;
+      margin: 0;
+      padding: 20px;
+    }
+
+    img {
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    h1 {
+      page-break-after: avoid;
+    }
   }
 </style>
 </head>
