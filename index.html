@@ -159,15 +159,14 @@
       font-size: 22px;
     }
 
-    /* Keep inventory summary together on print or break naturally */
     .inventory {
       break-inside: auto;
       border-bottom: 2px solid #000;
-      page-break-after: always; /* Force images to start on a new page when printing */
+      page-break-after: always;
     }
 
     .inventory-section ul {
-      display: block; /* Fallback for older print engines */
+      display: block;
     }
 
     .inventory-section li {
@@ -184,7 +183,6 @@
       border-bottom: none;
     }
 
-    /* Prevent page break before Image 1 so it stays on its initial print page */
     .item:first-of-type {
       break-before: avoid;
       height: auto; 
@@ -200,7 +198,6 @@
       padding: 5px;
     }
 
-    /* General rules for images 2 to 76 */
     img {
       max-height: 68vh; 
       object-fit: contain;
@@ -209,7 +206,6 @@
       margin: 0 auto;
     }
 
-    /* Specific fix: Shrink ONLY the first image to leave room for headers if needed */
     .item:first-of-type img {
       max-height: 50vh;
     }
@@ -232,6 +228,7 @@
     <div class="subtitle">Property Location: Basement Flood Damage Assessment Report</div>
   </div>
 
+  <!-- Summary of Damaged Items Section -->
   <div class="inventory">
     <h2>Summary of Damaged Items</h2>
 
@@ -245,18 +242,19 @@
         <li>Drywall insulation</li>
         <li>Wooden framing/studs</li>
         <li>Interior door trim and casings</li>
-        <li>Stair treads and risers</li>
         <li>Basement closet shelving</li>
         <li>Under-stair storage area</li>
         <li>Utility room wall finishing</li>
         <li>Vinyl flooring transition strips</li>
+        <li>Interior Doors</li>
+        <li>Sauna installation structure</li>
       </ul>
     </div>
 
     <div class="inventory-section">
       <h3>Furniture</h3>
       <ul>
-        <li>Computer desk/workstation</li>
+        <li>Computer desks / workstations</li>
         <li>Office desk with shelving</li>
         <li>Rolling office chair</li>
         <li>Dining table</li>
@@ -271,27 +269,41 @@
         <li>Entry bench/shoe organizer</li>
         <li>Folding table</li>
         <li>Laundry storage shelving</li>
+        <li>IKEA Markus chair</li>
+        <li>Gaming chair</li>
+        <li>Ergonomic office chair</li>
+        <li>Couches</li>
+        <li>IKEA Closets</li>
+        <li>Bedframes</li>
       </ul>
     </div>
 
     <div class="inventory-section">
       <h3>Computers & Electronics</h3>
       <ul>
-        <li>Desktop computer tower</li>
-        <li>Computer monitors</li>
-        <li>Mechanical keyboard</li>
-        <li>Computer mouse</li>
+        <li>Desktop computer towers (3 total)</li>
+        <li>Macbook Air M1</li>
+        <li>iPad Pro 12.9-inch</li>
+        <li>Apple Pencil</li>
+        <li>Protective cases (Macbook & iPad)</li>
+        <li>Several Mechanical keyboards</li>
+        <li>Several Computer mouses</li>
         <li>Computer speakers</li>
-        <li>Printer</li>
+        <li>Printers (2 total, including Laser printer)</li>
         <li>Router and modem</li>
         <li>UPS (battery backup)</li>
         <li>Power strips</li>
         <li>Extension cords</li>
-        <li>HDMI, DisplayPort and USB cables</li>
+        <li>HDMI, DisplayPort, Monitor, and USB cables</li>
         <li>Charging cables</li>
+        <li>Phone & Macbook quick chargers</li>
+        <li>Powerbanks</li>
         <li>External hard drives</li>
         <li>Gaming accessories</li>
         <li>Computer accessories</li>
+        <li>Nintendo Switch OLED</li>
+        <li>PlayStation 4 (PS4) console</li>
+        <li>PS4 Controllers</li>
       </ul>
     </div>
 
@@ -301,29 +313,15 @@
         <li>Mini refrigerator</li>
         <li>Vacuum cleaner</li>
         <li>Portable fan</li>
-        <li>Humidifier / dehumidifier</li>
+        <li>Dehumidifiers (2 total)</li>
         <li>Air purifier</li>
         <li>Coffee maker</li>
         <li>Electric kettle</li>
         <li>Rice cooker</li>
-        <li>Water pump equipment</li>
-      </ul>
-    </div>
-
-    <div class="inventory-section">
-      <h3>Kitchen Items</h3>
-      <ul>
-        <li>Pots and pans</li>
-        <li>Frying pans</li>
-        <li>Kitchen knives</li>
-        <li>Cooking utensils</li>
-        <li>Mixing bowls</li>
-        <li>Plates and bowls</li>
-        <li>Drinking glasses</li>
-        <li>Coffee mugs</li>
-        <li>Plastic food containers</li>
-        <li>Dish drying rack</li>
-        <li>Kitchen towels</li>
+        <li>Laundry machine</li>
+        <li>Clothes dryer</li>
+        <li>Hair dryer</li>
+        <li>Stored radiators (10 total)</li>
       </ul>
     </div>
 
@@ -345,42 +343,29 @@
         <li>Belts</li>
         <li>Clothing storage bins</li>
         <li>Laundry basket with clothing</li>
+        <li>Summer clothing assortments</li>
+        <li>Winter clothing assortments</li>
       </ul>
     </div>
 
     <div class="inventory-section">
-      <h3>Personal Items</h3>
+      <h3>Personal Items, Papers & Collections</h3>
       <ul>
         <li>Backpacks</li>
-        <li>Suitcases</li>
+        <li>Suitcases & Luggages (5 total, varying sizes)</li>
         <li>Duffel bags</li>
         <li>Umbrellas</li>
-        <li>Personal documents</li>
-        <li>Photo albums</li>
-        <li>Books</li>
+        <li>Personal documents & Lifetime documentations</li>
+        <li>Photo albums & Family pictures</li>
+        <li>Bunch of Books</li>
         <li>Notebooks</li>
         <li>Binders</li>
         <li>File folders</li>
         <li>Office supplies</li>
-      </ul>
-    </div>
-
-    <div class="inventory-section">
-      <h3>Tools & Hardware</h3>
-      <ul>
-        <li>Toolbox</li>
-        <li>Screwdriver set</li>
-        <li>Wrench set</li>
-        <li>Pliers</li>
-        <li>Hammer</li>
-        <li>Utility knife</li>
-        <li>Measuring tape</li>
-        <li>Power drill</li>
-        <li>Drill bits</li>
-        <li>Hardware organizers</li>
-        <li>Extension cord reel</li>
-        <li>Flashlights</li>
-        <li>Work gloves</li>
+        <li>School materials</li>
+        <li>Baseball player cards collection</li>
+        <li>Pokemon cards collection</li>
+        <li>Three Guitars (including 1 Yamaha)</li>
       </ul>
     </div>
 
@@ -398,7 +383,7 @@
     </div>
 
     <div class="inventory-section">
-      <h3>Household Items</h3>
+      <h3>Household & Bathroom Items</h3>
       <ul>
         <li>Area rugs</li>
         <li>Floor mats</li>
@@ -406,6 +391,7 @@
         <li>Comforters</li>
         <li>Pillows</li>
         <li>Bed sheets</li>
+        <li>Mattresses (3 total)</li>
         <li>Towels</li>
         <li>Curtains</li>
         <li>Laundry detergent</li>
@@ -413,29 +399,7 @@
         <li>Mop</li>
         <li>Broom</li>
         <li>Buckets</li>
-      </ul>
-    </div>
-
-    <div class="inventory-section">
-      <h3>Automotive Items</h3>
-      <ul>
-        <li>Car cleaning supplies</li>
-        <li>Motor oil</li>
-        <li>Automotive fluids</li>
-        <li>Snow brush</li>
-        <li>Ice scraper</li>
-        <li>Automotive tools</li>
-        <li>Emergency roadside kit</li>
-      </ul>
-    </div>
-
-    <div class="inventory-section">
-      <h3>Food & Consumables</h3>
-      <ul>
-        <li>Pantry food</li>
-        <li>Bottled beverages</li>
-        <li>Canned food</li>
-        <li>Dry food storage containers</li>
+        <li>Bathroom materials and utilities</li>
       </ul>
     </div>
 
@@ -454,6 +418,7 @@
     </div>
   </div>
 
+  <!-- Documentation Images Grid Layout -->
   <div class="item"><div class="label">Image 1</div><div class="image-wrapper"><img src="image_1.jpg"></div><div class="caption">Type your description for image 1 here...</div></div>
   <div class="item"><div class="label">Image 2</div><div class="image-wrapper"><img src="image_2.jpg"></div><div class="caption">Type your description for image 2 here...</div></div>
   <div class="item"><div class="label">Image 3</div><div class="image-wrapper"><img src="image_3.jpg"></div><div class="caption"></div></div>
